@@ -15,48 +15,59 @@ Transform your ESP32 and MPU6050 into a sleek, motion-controlled Bluetooth mouse
 - **📡 Wireless & Driverless**: Uses standard BLE HID profiles. No software installation required on the host computer.
 - **🔋 Energy Efficient**: Built using Bluetooth Low Energy for longer battery life in portable setups.
 
-## 🛠️ Hardware Requirements
+## 🛠️ How to Build Your Own Air Mouse
 
-- **Microcontroller**: [ESP32 DevKit V4](https://www.espressif.com/en/products/devkits/esp32-devkitc) (or any ESP32 with BLE support).
-- **Sensor**: [MPU6050](https://www.adafruit.com/product/3803) (6-axis Accel + Gyro).
-- **Buttons**: 4x Momentary Push Buttons.
-- **Power**: USB-C/Micro-USB or a 3.7V LiPo battery.
+Follow these step-by-step instructions to assemble and start using your ESP32 Air Mouse.
 
-## 🔌 Wiring Diagram
+### Step 1: Gathering Materials
+You will need:
+- **ESP32 Development Board** (30-pin or 38-pin version works fine)
+- **MPU6050 Sensor Module** (Accelerometer + Gyroscope)
+- **4x Push Buttons** (for Left, Right, and Scroll Up/Down)
+- **A Small Breadboard** or a **Prototype Board** (if soldering)
+- **Jumper Wires**
 
-| Component | ESP32 Pin | Description |
-| :--- | :--- | :--- |
-| **MPU6050 VCC** | 3V3 | Power |
-| **MPU6050 GND** | GND | Ground |
-| **MPU6050 SCL** | GPIO 22 | I2C Clock |
-| **MPU6050 SDA** | GPIO 21 | I2C Data |
-| **Left Click** | GPIO 18 | Internal Pull-up |
-| **Right Click** | GPIO 19 | Internal Pull-up |
-| **Scroll Up** | GPIO 14 | Internal Pull-up |
-| **Scroll Down** | GPIO 27 | Internal Pull-up |
+### Step 2: Wiring the Circuit
+Looking at the [Air_Mouse.png](Air_Mouse.png) diagram, connect the components as follows:
 
-*Note: All buttons should be connected between the GPIO pin and GND.*
+1. **Connect the MPU6050**:
+   - VCC -> ESP32 **3V3**
+   - GND -> ESP32 **GND**
+   - SCL -> ESP32 **GPIO 22**
+   - SDA -> ESP32 **GPIO 21**
+2. **Connect the Click Buttons**:
+   - Connect one side of all buttons to **GND**.
+   - Connect the other side of each button to its specific GPIO:
+     - **Left Click** -> GPIO **18**
+     - **Right Click** -> GPIO **19**
+     - **Scroll Up** -> GPIO **14**
+     - **Scroll Down** -> GPIO **27**
 
-## 🚀 Getting Started
+### Step 3: Setting Up the Software
+1. **Install Arduino IDE**: [Download it here](https://www.arduino.cc/en/software).
+2. **Add ESP32 Support**: 
+   - Go to `File > Preferences`.
+   - In "Additional Boards Manager URLs," paste: `https://dl.espressif.com/dl/package_esp32_index.json`
+   - Go to `Tools > Board > Boards Manager`, search for **"esp32"**, and install the package by Espressif Systems.
+3. **Install Libraries**:
+   - Go to `Sketch > Include Library > Manage Libraries`.
+   - Search for and install **"ESP32 BLE Mouse"** (by T-vK).
+   - Search for and install **"Adafruit MPU6050"** (this will ask you to install "Adafruit Unified Sensor" and "Adafruit BusIO"—say **Yes to all**).
 
-### 1. Prerequisites
-Ensure you have the [Arduino IDE](https://www.arduino.cc/en/software) installed with the ESP32 board support package.
+### Step 4: Flashing the Code
+1. Connect your ESP32 to your computer via USB.
+2. Open `Air_Mouse.ino` in your Arduino IDE.
+3. Go to `Tools > Board` and select your board (usually **"DOIT ESP32 DEVKIT V1"**).
+4. Go to `Tools > Port` and select the COM port of your ESP32.
+5. Click the **Upload** (➡️) button.
 
-### 2. Install Libraries
-You will need to install the following libraries via the Arduino Library Manager:
-- `ESP32-BLE-Mouse` by T-vK
-- `Adafruit MPU6050`
-- `Adafruit Unified Sensor`
+### Step 5: Pairing and Using
+1. Once the upload is successful, your ESP32 will start broadcasting its Bluetooth signal.
+2. Open your computer/phone's Bluetooth settings and look for **"ESP32 BLE Mouse"**.
+3. Pair with it.
+4. Move your Air Mouse! Tilt it forward/backward to move vertically, and pan it side-to-side to move horizontally. Use your buttons for clicks and scrolling.
 
-### 3. Flash the Code
-1. Open `Air_Mouse.ino` in Arduino IDE.
-2. Select your ESP32 board (e.g., "DOIT ESP32 DEVKIT V1").
-3. Connect your ESP32 and click **Upload**.
-
-### 4. Pair & Play
-- Once flashed, open "Bluetooth & other devices" on your PC/Mac/Tablet.
-- Search for a new device named **"ESP32 BLE Mouse"**.
-- Connect and start waving!
+---
 
 ## 🧪 Technical Logic
 
