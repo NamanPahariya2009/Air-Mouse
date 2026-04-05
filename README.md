@@ -60,6 +60,7 @@ Looking at the [Air_Mouse.png](Air_Mouse.png) diagram, connect the components as
 3. Go to `Tools > Board` and select your board (usually **"DOIT ESP32 DEVKIT V1"**).
 4. Go to `Tools > Port` and select the COM port of your ESP32.
 5. Click the **Upload** (➡️) button.
+   - **Tip**: If it says "Connecting...", you may need to **press and hold the BOOT button** on your ESP32 until the flashing begins!
 
 ### Step 5: Pairing and Using
 1. Once the upload is successful, your ESP32 will start broadcasting its Bluetooth signal.
