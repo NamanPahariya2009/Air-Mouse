@@ -1,21 +1,21 @@
-# 🖱️ ESP32 BLE Air Mouse
+#  ESP32 BLE Air Mouse
 
 Transform your ESP32 and MPU6050 into a sleek, motion-controlled Bluetooth mouse. This project uses the built-in Bluetooth Low Energy (BLE) capabilities of the ESP32 to act as a standard HID (Human Interface Device), allowing you to control your computer cursor simply by moving your hand in the air.
 
 ![Air Mouse Circuit](Air_Mouse.png)
 
-## ✨ Features
+##  Features
 
-- **🎮 Motion Control**: High-precision cursor movement using the MPU6050 gyroscope.
-- **⚡ Dynamic Sensitivity**: Cursor speed scales naturally with your hand movement (faster movement = faster cruise).
-- **🎯 Deadzone Filtering**: Intelligent thresholding to prevent cursor "creep" or jitter when stationary.
-- **🖱️ Full Mouse Functionality**:
+- **Motion Control**: High-precision cursor movement using the MPU6050 gyroscope.
+- **Dynamic Sensitivity**: Cursor speed scales naturally with your hand movement (faster movement = faster cruise).
+- **Deadzone Filtering**: Intelligent thresholding to prevent cursor "creep" or jitter when stationary.
+- **Full Mouse Functionality**:
   - Left & Right Click buttons.
   - Dedicated Scroll Up & Scroll Down buttons.
-- **📡 Wireless & Driverless**: Uses standard BLE HID profiles. No software installation required on the host computer.
-- **🔋 Energy Efficient**: Built using Bluetooth Low Energy for longer battery life in portable setups.
+- **Wireless & Driverless**: Uses standard BLE HID profiles. No software installation required on the host computer.
+- **Energy Efficient**: Built using Bluetooth Low Energy for longer battery life in portable setups.
 
-## 🛠️ How to Build Your Own Air Mouse
+##  How to Build Your Own Air Mouse
 
 Follow these step-by-step instructions to assemble and start using your ESP32 Air Mouse.
 
@@ -70,7 +70,7 @@ Looking at the [Air_Mouse.png](Air_Mouse.png) diagram, connect the components as
 
 ---
 
-## 🧪 Technical Logic
+##  Technical Logic
 
 The project uses the **Gyroscope (degrees/sec)** instead of the Accelerometer to map movement. This provides a "laser pointer" feel.
 - **Yaw (Z-axis)** -> Horizontal Movement (X)
@@ -81,8 +81,8 @@ The project uses the **Gyroscope (degrees/sec)** instead of the Accelerometer to
 float dynamicSensitivity = baseSensitivity * (1 + speed * 0.2);
 ```
 
-## 📜 License
+##  License
 This project is open-source and available under the [MIT License](LICENSE).
 
 ---
-*Developed by [Naman Pahariya](https://github.com/NamanPahariya) with ❤️ for the Microcontroller community.*
+*Developed by [Naman Pahariya](https://github.com/NamanPahariya2009) with ❤️ for the IoT community.*
